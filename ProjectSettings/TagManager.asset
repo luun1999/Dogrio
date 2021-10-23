@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Bounder
   layers:
   - Default
   - TransparentFX
