@@ -4,144 +4,60 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float normalSpeed = 2.0f;
-    public float rushSpeed = 4.0f;
-    public float jumpSpeed = 5.0f;
-    public float gravityScale = 0.2f;
+    [SerializeField] private float m_nJumpSpeed;
+    [SerializeField] private float m_nHigherJumpSpd;
+    [SerializeField] private float m_nRunSpeed;
+    [SerializeField] private float m_nGravityScale;
+    private PlayerController m_PlayerController;
+    private bool m_bIsGround;
     private Rigidbody2D rig;
-    private Animator animator;
-    bool isJump = false;
-    bool isRush = false;
-    bool isDied = false;
-    bool allowJump = false;
-
-    void Awake()
-    {
+    void Start() {
         rig = GetComponent<Rigidbody2D>();
+        m_PlayerController = GameObject.FindObjectOfType<PlayerController>();
     }
-
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-        isRush = animator.GetBool("isRush");
-        isJump = animator.GetBool("isJump");
-        isDied = animator.GetBool("isDied");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        isDied = animator.GetBool("isDied");
-        if (isDied == false)
-        {
-            UpdateDied();
-            UpdateJump();
-            UpdateRush();
-            UpdateWalk();
-            animator.SetFloat("velocityY", rig.velocity.y);
+    void Update() {
+        if (Input.GetKey(KeyCode.LeftShift)) {
+            m_PlayerController.DispatchHigherJump(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            m_PlayerController.DispatchHigherJump(false);
         }
     }
 
-    void UpdateDied()
-    {
-        if (Input.GetKey(KeyCode.X))
-        {
-            animator.SetBool("isDied", true);
-        }
-    }
-
-    void UpdateJump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isJump = true;
-            animator.SetBool("isJump", true);
-            animator.SetBool("isWalk", false);
-        }
-    }
-
-    void UpdateRush()
-    {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            animator.SetBool("isWalk", false);
-            animator.SetBool("isRush", true);
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            animator.SetBool("isRush", false);
-        }
-    }
-
-    void UpdateWalk()
-    {
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            isRush = animator.GetBool("isRush");
-            transform.localScale = new Vector3(1, 1, 1);
-            if (isRush == false && isJump == false)
-            {
-                animator.SetBool("isWalk", true);
+    void FixedUpdate() {
+        if (m_bIsGround) {
+            if (m_PlayerController.GetHigherJump()) {
+                rig.AddForce(Vector2.up * m_nHigherJumpSpd, ForceMode2D.Impulse);
             }
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            isRush = animator.GetBool("isRush");
-            transform.localScale = new Vector3(-1, 1, 1);
-            if (isRush == false && isJump == false)
-            {
-                animator.SetBool("isWalk", true);
+            else {
+                rig.AddForce(Vector2.up * m_nJumpSpeed, ForceMode2D.Impulse);
             }
+            m_bIsGround = false;
         }
 
-        if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || isRush == true)
-        {
-            animator.SetBool("isWalk", false);
-        }
-    }
-
-    void FixedUpdate()
-    {
-        float speed = 0;
-        isDied = animator.GetBool("isDied");
-
-        if (isDied == true)
-        {
-            speed = 0;
-        }
-        else if (isRush == true)
-        {
-            speed = rushSpeed;
-        }
-        else
-        {
-            speed = normalSpeed;
-        }
-
-        float translation = Input.GetAxis("Horizontal") * speed;
-        translation *= Time.deltaTime;
+        //float translation =  Input.GetAxis("Horizontal") * m_nRunSpeed * Time.fixedDeltaTime;
+        float translation =  m_PlayerController.GetHorizontalInput() * m_nRunSpeed * Time.fixedDeltaTime;
         transform.Translate(translation, 0, 0);
 
-        if (isJump == true && allowJump == true)
-        {
-            rig.AddForce(transform.up * jumpSpeed, ForceMode2D.Impulse);
-            isJump = false;
-            allowJump = false;
-        }
-
-        if (rig.velocity.y < 0)
-        {
-            rig.velocity -= Vector2.up * gravityScale * Time.fixedDeltaTime;
+        if (rig.velocity.y < 0 && rig.velocity.y >= -9.8) {
+            //Debug.Log("Gravity effect" + rig.velocity.y);
+            float translate  = rig.velocity.y * m_nGravityScale * Time.fixedDeltaTime;
+            transform.Translate(0, translate, 0);
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Ground")
-        {
-            Debug.Log("ggg");
-            allowJump = true;
-            animator.SetBool("isJump", false);
+    void OnTriggerStay2D(Collider2D collider) {
+        //Debug.Log("Stay");
+
+        if (collider.gameObject.tag == "Ground") {
+            m_bIsGround = true;
         }
     }
+
+    void OnTriggerExit2D(Collider2D collider) {
+        //Debug.Log("Exit");
+    }
+
+    #region local methods
+    #endregion
 }

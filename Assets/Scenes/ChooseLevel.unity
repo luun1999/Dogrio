@@ -3393,8 +3393,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 437202797}
   m_HandleRect: {fileID: 437202796}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.5761915
+  m_Value: 1
+  m_Size: 0.44242278
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5303,8 +5303,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.91045, y: 9.856531, z: 1}
-  m_Center: {x: -9.358255, y: -5.5147247, z: 0}
+  m_Size: {x: 1.1186657, y: 9.856531, z: 1}
+  m_Center: {x: -11.683339, y: -5.5147247, z: 0}
 --- !u!65 &2031346924
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5316,8 +5316,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17.635342, y: 1.0447769, z: 1}
-  m_Center: {x: -0.03463888, y: -10.992592, z: 0}
+  m_Size: {x: 22.16893, y: 1.0447769, z: 1}
+  m_Center: {x: -0.024880886, y: -10.992592, z: 0}
 --- !u!65 &2031346925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5329,8 +5329,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9961777, y: 9.758113, z: 1}
-  m_Center: {x: 9.438303, y: -5.472626, z: 0}
+  m_Size: {x: 1.2309151, y: 9.758113, z: 1}
+  m_Center: {x: 11.785675, y: -5.472626, z: 0}
 --- !u!65 &2031346926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5342,8 +5342,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17.697124, y: 1, z: 1}
-  m_Center: {x: 0.008472443, y: 0, z: 0}
+  m_Size: {x: 22.173416, y: 1, z: 1}
+  m_Center: {x: 0.0003299713, y: 0, z: 0}
 --- !u!4 &2031346927
 Transform:
   m_ObjectHideFlags: 0
