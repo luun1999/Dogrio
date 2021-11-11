@@ -8,8 +8,4 @@ public class MenuController : MonoBehaviour
     public void LoadLevels() {
         SceneManager.LoadScene("Level01");
     }
-
-    public void Exit () {
-        Application.Quit();
-    }
 }
