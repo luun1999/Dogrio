@@ -6,10 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float m_nSpeed;
     [SerializeField] private float m_nBrake;
+    private GameObject m_Player;
     private float m_nHorizontalInput;
     private float m_nDirection;
-    private bool m_bIsJump;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -32,22 +31,18 @@ public class PlayerController : MonoBehaviour
 
     public void RightButtonDown() {
         m_nDirection = 1;
-        Debug.Log("Right" + m_nHorizontalInput);
     }
 
     public void RightButtonUp() {
         m_nDirection = 0;
-        Debug.Log("Right Release");
     }
 
     public void LeftButtonDown() {
         m_nDirection = -1;
-        Debug.Log("Left");
     }
 
     public void LeftButtonUp() {
         m_nDirection = 0;
-        Debug.Log("Left release");
     }
 
     public float GetHorizontalInput() {
@@ -57,14 +52,6 @@ public class PlayerController : MonoBehaviour
     public void ResetInput() {
         m_nHorizontalInput = 0;
         Debug.Log("Reset");
-    }
-
-    public void DispatchHigherJump(bool isJump) {
-        m_bIsJump = isJump;
-    }
-
-    public bool GetHigherJump() {
-        return m_bIsJump;
     }
 
     private int IsPositive(float number) {

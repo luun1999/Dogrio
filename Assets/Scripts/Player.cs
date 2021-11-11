@@ -10,31 +10,54 @@ public class Player : MonoBehaviour
     [SerializeField] private float m_nGravityScale;
     private PlayerController m_PlayerController;
     private bool m_bIsGround;
+    private bool m_bIsJumpHigher;
     private Rigidbody2D rig;
+    private SpriteRenderer sprite;
+    private Animator anim;
+    
     void Start() {
         rig = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         m_PlayerController = GameObject.FindObjectOfType<PlayerController>();
+
+        m_bIsJumpHigher = false;
     }
     void Update() {
         if (Input.GetKey(KeyCode.LeftShift)) {
-            m_PlayerController.DispatchHigherJump(true);
+            m_bIsJumpHigher = true;
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift)) {
-            m_PlayerController.DispatchHigherJump(false);
+            m_bIsJumpHigher = false;
+        }
+
+        if (Input.GetKey(KeyCode.D)) {
+            m_PlayerController.RightButtonDown();
+        }
+        else if (Input.GetKeyUp(KeyCode.D)) {
+            m_PlayerController.RightButtonUp();
+        }
+
+        if (Input.GetKey(KeyCode.A)) {
+            m_PlayerController.LeftButtonDown();
+        }
+        else if (Input.GetKeyUp(KeyCode.A)) {
+            m_PlayerController.LeftButtonUp();
+        }
+
+        anim.SetFloat("velocityY", rig.velocity.y);
+        anim.SetBool("isJumpHigher", m_bIsJumpHigher);
+        anim.SetBool("isGround", m_bIsGround);
+
+        if (m_PlayerController.GetHorizontalInput() < 0) {
+            sprite.flipX = true;
+        }
+        else if (m_PlayerController.GetHorizontalInput() > 0){
+            sprite.flipX = false;
         }
     }
 
     void FixedUpdate() {
-        if (m_bIsGround) {
-            if (m_PlayerController.GetHigherJump()) {
-                rig.AddForce(Vector2.up * m_nHigherJumpSpd, ForceMode2D.Impulse);
-            }
-            else {
-                rig.AddForce(Vector2.up * m_nJumpSpeed, ForceMode2D.Impulse);
-            }
-            m_bIsGround = false;
-        }
-
         //float translation =  Input.GetAxis("Horizontal") * m_nRunSpeed * Time.fixedDeltaTime;
         float translation =  m_PlayerController.GetHorizontalInput() * m_nRunSpeed * Time.fixedDeltaTime;
         transform.Translate(translation, 0, 0);
@@ -43,6 +66,20 @@ public class Player : MonoBehaviour
             //Debug.Log("Gravity effect" + rig.velocity.y);
             float translate  = rig.velocity.y * m_nGravityScale * Time.fixedDeltaTime;
             transform.Translate(0, translate, 0);
+        }
+
+        if (m_bIsGround) {
+            //fix player sometime jump higher than I want.
+            rig.velocity = Vector2.zero;
+            rig.angularVelocity = 0;
+
+            if (m_bIsJumpHigher) {
+                rig.AddForce(transform.up * m_nHigherJumpSpd, ForceMode2D.Force);
+            }
+            else {
+                rig.AddForce(transform.up * m_nJumpSpeed, ForceMode2D.Force);
+            }
+            m_bIsGround = false;
         }
     }
 
@@ -59,5 +96,8 @@ public class Player : MonoBehaviour
     }
 
     #region local methods
+    public void SetHigherJump(bool isHigher) {
+        m_bIsJumpHigher = isHigher;
+    }
     #endregion
 }
