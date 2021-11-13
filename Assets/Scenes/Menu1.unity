@@ -1428,6 +1428,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8392034461148858020, guid: 308a2574dd99de04aa875a8ff2d68253, type: 3}
+      propertyPath: m_text
+      value: Do you want to exit?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392034461148858021, guid: 308a2574dd99de04aa875a8ff2d68253, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 232.864
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392034461148858021, guid: 308a2574dd99de04aa875a8ff2d68253, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 21.6655
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392034461148858021, guid: 308a2574dd99de04aa875a8ff2d68253, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000014305
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392034461148858021, guid: 308a2574dd99de04aa875a8ff2d68253, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 8392034461602776650, guid: 308a2574dd99de04aa875a8ff2d68253, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
