@@ -24,10 +24,10 @@ public class Player : MonoBehaviour
         m_bIsJumpHigher = false;
     }
     void Update() {
-        if (Input.GetKey(KeyCode.LeftShift)) {
+        if (Input.GetKey(KeyCode.Space)) {
             m_bIsJumpHigher = true;
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift)) {
+        else if (Input.GetKeyUp(KeyCode.Space)) {
             m_bIsJumpHigher = false;
         }
 
