@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Bounder
+  - NeedleTrap
   layers:
   - Default
   - TransparentFX

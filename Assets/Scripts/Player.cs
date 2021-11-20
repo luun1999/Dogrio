@@ -8,9 +8,12 @@ public class Player : MonoBehaviour
     [SerializeField] private float m_nHigherJumpSpd;
     [SerializeField] private float m_nRunSpeed;
     [SerializeField] private float m_nGravityScale;
+    [SerializeField] private ParticleSystem deathParticle; 
+
     private PlayerController m_PlayerController;
     private bool m_bIsGround;
     private bool m_bIsJumpHigher;
+    private bool m_bIsDeath = false;
     private Rigidbody2D rig;
     private SpriteRenderer sprite;
     private Animator anim;
@@ -24,6 +27,10 @@ public class Player : MonoBehaviour
         m_bIsJumpHigher = false;
     }
     void Update() {
+        if (m_bIsDeath) {
+            return;
+        }
+
         if (Input.GetKey(KeyCode.Space)) {
             m_bIsJumpHigher = true;
         }
@@ -59,6 +66,10 @@ public class Player : MonoBehaviour
 
     void FixedUpdate() {
         //float translation =  Input.GetAxis("Horizontal") * m_nRunSpeed * Time.fixedDeltaTime;
+        if (m_bIsDeath) {
+            return;
+        }
+
         float translation =  m_PlayerController.GetHorizontalInput() * m_nRunSpeed * Time.fixedDeltaTime;
         transform.Translate(translation, 0, 0);
 
@@ -93,6 +104,16 @@ public class Player : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collider) {
         //Debug.Log("Exit");
+    }
+
+    // Death
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "NeedleTrap" && m_bIsDeath == false) {
+            deathParticle.Play();   
+            m_bIsDeath = true;
+            rig.constraints = RigidbodyConstraints2D.FreezeAll;
+            sprite.color = new Color(1, 0, 0, 0);
+        }
     }
 
     #region local methods

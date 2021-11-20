@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     {
         m_nDirection = 0;
         m_nHorizontalInput = 0;
+        m_Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
