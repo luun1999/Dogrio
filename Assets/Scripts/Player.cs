@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float m_nHigherJumpSpd;
     [SerializeField] private float m_nRunSpeed;
     [SerializeField] private float m_nGravityScale;
-    [SerializeField] private ParticleSystem deathParticle; 
+    [SerializeField] private ParticleSystem deathParticle;
+    [SerializeField] private GameObject gameOverUI;
 
     private PlayerController m_PlayerController;
     private bool m_bIsGround;
@@ -113,6 +114,11 @@ public class Player : MonoBehaviour
             m_bIsDeath = true;
             rig.constraints = RigidbodyConstraints2D.FreezeAll;
             sprite.color = new Color(1, 0, 0, 0);
+
+            //game over
+            //logic when game over
+            gameOverUI.SetActive(true);
+
         }
     }
 
