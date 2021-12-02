@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,12 @@ public class Player : MonoBehaviour
         m_PlayerController = GameObject.FindObjectOfType<PlayerController>();
 
         m_bIsJumpHigher = false;
+
+        PlayerData data = SaveSystem.LoadPlayer();
+        if (data != null)
+        {
+            transform.position = new Vector3(data.position[0], data.position[1],  data.position[2]);
+        }
     }
     void Update() {
         if (m_bIsDeath) {
@@ -51,6 +58,11 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.A)) {
             m_PlayerController.LeftButtonUp();
+        }
+
+        if (Input.GetKey(KeyCode.Delete))
+        {
+            SaveSystem.DeletePlayerData();
         }
 
         anim.SetFloat("velocityY", rig.velocity.y);
@@ -98,8 +110,17 @@ public class Player : MonoBehaviour
     void OnTriggerStay2D(Collider2D collider) {
         //Debug.Log("Stay");
 
-        if (collider.gameObject.tag == "Ground") {
+        if (collider.gameObject.CompareTag("Ground")) {
             m_bIsGround = true;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("SavePoint"))
+        {
+            Debug.Log("Hey hey save here!");
+            SavePlayer();
         }
     }
 
@@ -109,7 +130,7 @@ public class Player : MonoBehaviour
 
     // Death
     void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.tag == "NeedleTrap" && m_bIsDeath == false) {
+        if (other.gameObject.CompareTag("NeedleTrap") && m_bIsDeath == false) {
             deathParticle.Play();   
             m_bIsDeath = true;
             rig.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -125,6 +146,23 @@ public class Player : MonoBehaviour
     #region local methods
     public void SetHigherJump(bool isHigher) {
         m_bIsJumpHigher = isHigher;
+    }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+
+        transform.position = position;
     }
     #endregion
 }
