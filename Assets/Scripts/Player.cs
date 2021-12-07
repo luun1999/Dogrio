@@ -117,6 +117,12 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("End Point")) {
             completeLevelUI.SetActive(true);
         }
+
+        if (other.gameObject.CompareTag("SavePoint"))
+        {
+            Debug.Log("Hey hey save here!");
+            SavePlayer();
+        }
     }
 
     void OnTriggerStay2D(Collider2D collider) {
@@ -124,15 +130,6 @@ public class Player : MonoBehaviour
 
         if (collider.gameObject.CompareTag("Ground")) {
             m_bIsGround = true;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("SavePoint"))
-        {
-            Debug.Log("Hey hey save here!");
-            SavePlayer();
         }
     }
 

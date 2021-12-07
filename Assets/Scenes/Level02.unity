@@ -8815,7 +8815,8 @@ MonoBehaviour:
   m_nRunSpeed: 4
   m_nGravityScale: 0.8
   deathParticle: {fileID: 1715029902}
-  gameOverUI: {fileID: 0}
+  gameOverUI: {fileID: 1940969090}
+  completeLevelUI: {fileID: 797911271}
 --- !u!4 &1784210919
 Transform:
   m_ObjectHideFlags: 0
