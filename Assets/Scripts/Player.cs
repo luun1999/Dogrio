@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float m_nGravityScale;
     [SerializeField] private ParticleSystem deathParticle;
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject completeLevelUI;
 
     private PlayerController m_PlayerController;
     private bool m_bIsGround;
@@ -71,8 +74,12 @@ public class Player : MonoBehaviour
             return;
         }
 
-        float translation =  m_PlayerController.GetHorizontalInput() * m_nRunSpeed * Time.fixedDeltaTime;
-        transform.Translate(translation, 0, 0);
+        if (!completeLevelUI.activeSelf) {
+            //rig.constraints = RigidbodyConstraints2D.FreezePositionX;
+            float translation =  m_PlayerController.GetHorizontalInput() * m_nRunSpeed * Time.fixedDeltaTime;
+            transform.Translate(translation, 0, 0);
+            Debug.Log("FreezePosion");
+        }
 
         if (rig.velocity.y < 0 && rig.velocity.y >= -9.8) {
             //Debug.Log("Gravity effect" + rig.velocity.y);
@@ -95,10 +102,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("End Point")) {
+            completeLevelUI.SetActive(true);
+        }
+    }
+
     void OnTriggerStay2D(Collider2D collider) {
         //Debug.Log("Stay");
 
-        if (collider.gameObject.tag == "Ground") {
+        if (collider.gameObject.CompareTag("Ground")) {
             m_bIsGround = true;
         }
     }

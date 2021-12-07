@@ -30,4 +30,12 @@ public class LevelController : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu1");
     }
+
+    public void LoadNextLevel() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void BackToLevels() {
+        SceneManager.LoadScene("ChooseLevel");
+    }
 }
