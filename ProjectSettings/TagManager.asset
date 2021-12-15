@@ -8,6 +8,8 @@ TagManager:
   - Bounder
   - NeedleTrap
   - SavePoint
+  - End Point
+  - LightButton
   layers:
   - Default
   - TransparentFX

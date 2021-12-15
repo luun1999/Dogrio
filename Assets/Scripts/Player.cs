@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
             //rig.constraints = RigidbodyConstraints2D.FreezePositionX;
             float translation =  m_PlayerController.GetHorizontalInput() * m_nRunSpeed * Time.fixedDeltaTime;
             transform.Translate(translation, 0, 0);
-            Debug.Log("FreezePosion");
+            // Debug.Log("FreezePosion");
         }
 
         if (rig.velocity.y < 0 && rig.velocity.y >= -9.8) {
@@ -149,6 +149,11 @@ public class Player : MonoBehaviour
             //logic when game over
             gameOverUI.SetActive(true);
 
+        }
+
+        if (other.gameObject.CompareTag("LightButton"))
+        {
+            m_bIsGround = true;
         }
     }
 
