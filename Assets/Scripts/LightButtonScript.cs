@@ -18,9 +18,9 @@ public class LightButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -28,7 +28,7 @@ public class LightButtonScript : MonoBehaviour
             render.sprite = push;
             foreach (var light in lights)
             {
-                light.GetComponent<Light>().isActive = !light.GetComponent<Light>().isActive;
+                light.GetComponent<Light_>().isActive = !light.GetComponent<Light_>().isActive;
             }
         }
     }

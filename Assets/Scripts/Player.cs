@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private ParticleSystem deathParticle;
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject completeLevelUI;
+    [SerializeField] private int m_PlayerScore;
 
     private PlayerController m_PlayerController;
     private bool m_bIsGround;
@@ -21,8 +22,11 @@ public class Player : MonoBehaviour
     private Rigidbody2D rig;
     private SpriteRenderer sprite;
     private Animator anim;
-    
-    void Start() {
+
+    public int PlayerScore { get => m_PlayerScore; set => m_PlayerScore = value; }
+
+    void Start()
+    {
         rig = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -33,32 +37,40 @@ public class Player : MonoBehaviour
         PlayerData data = SaveSystem.LoadPlayer();
         if (data != null)
         {
-            transform.position = new Vector3(data.position[0], data.position[1],  data.position[2]);
+            transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
         }
     }
-    void Update() {
-        if (m_bIsDeath) {
+    void Update()
+    {
+        if (m_bIsDeath)
+        {
             return;
         }
 
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetKey(KeyCode.Space))
+        {
             m_bIsJumpHigher = true;
         }
-        else if (Input.GetKeyUp(KeyCode.Space)) {
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
             m_bIsJumpHigher = false;
         }
 
-        if (Input.GetKey(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.D))
+        {
             m_PlayerController.RightButtonDown();
         }
-        else if (Input.GetKeyUp(KeyCode.D)) {
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
             m_PlayerController.RightButtonUp();
         }
 
-        if (Input.GetKey(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.A))
+        {
             m_PlayerController.LeftButtonDown();
         }
-        else if (Input.GetKeyUp(KeyCode.A)) {
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
             m_PlayerController.LeftButtonUp();
         }
 
@@ -71,50 +83,61 @@ public class Player : MonoBehaviour
         anim.SetBool("isJumpHigher", m_bIsJumpHigher);
         anim.SetBool("isGround", m_bIsGround);
 
-        if (m_PlayerController.GetHorizontalInput() < 0) {
+        if (m_PlayerController.GetHorizontalInput() < 0)
+        {
             sprite.flipX = true;
         }
-        else if (m_PlayerController.GetHorizontalInput() > 0){
+        else if (m_PlayerController.GetHorizontalInput() > 0)
+        {
             sprite.flipX = false;
         }
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         //float translation =  Input.GetAxis("Horizontal") * m_nRunSpeed * Time.fixedDeltaTime;
-        if (m_bIsDeath) {
+        if (m_bIsDeath)
+        {
             return;
         }
 
-        if (!completeLevelUI.activeSelf) {
+        if (!completeLevelUI.activeSelf)
+        {
             //rig.constraints = RigidbodyConstraints2D.FreezePositionX;
-            float translation =  m_PlayerController.GetHorizontalInput() * m_nRunSpeed * Time.fixedDeltaTime;
+            float translation = m_PlayerController.GetHorizontalInput() * m_nRunSpeed * Time.fixedDeltaTime;
             transform.Translate(translation, 0, 0);
             // Debug.Log("FreezePosion");
         }
 
-        if (rig.velocity.y < 0 && rig.velocity.y >= -9.8) {
+        if (rig.velocity.y < 0 && rig.velocity.y >= -9.8)
+        {
             //Debug.Log("Gravity effect" + rig.velocity.y);
-            float translate  = rig.velocity.y * m_nGravityScale * Time.fixedDeltaTime;
+            float translate = rig.velocity.y * m_nGravityScale * Time.fixedDeltaTime;
             transform.Translate(0, translate, 0);
         }
 
-        if (m_bIsGround) {
+        if (m_bIsGround)
+        {
             //fix player sometime jump higher than I want.
             rig.velocity = Vector2.zero;
             rig.angularVelocity = 0;
 
-            if (m_bIsJumpHigher) {
+            if (m_bIsJumpHigher)
+            {
                 rig.AddForce(transform.up * m_nHigherJumpSpd, ForceMode2D.Force);
             }
-            else {
+            else
+            {
                 rig.AddForce(transform.up * m_nJumpSpeed, ForceMode2D.Force);
             }
             m_bIsGround = false;
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("End Point")) {
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("End Point"))
+        {
             completeLevelUI.SetActive(true);
         }
 
@@ -123,24 +146,39 @@ public class Player : MonoBehaviour
             Debug.Log("Hey hey save here!");
             SavePlayer();
         }
+
+        if (other.gameObject.CompareTag("Score"))
+        {
+            Score scoreObject = other.gameObject.GetComponent<Score>();
+            if (!scoreObject.IsDestroying)
+            {
+                PlayerScore += scoreObject.getScore();
+                scoreObject.OnPlayerEnter();
+            }
+        }
     }
 
-    void OnTriggerStay2D(Collider2D collider) {
+    void OnTriggerStay2D(Collider2D collider)
+    {
         //Debug.Log("Stay");
 
-        if (collider.gameObject.CompareTag("Ground")) {
+        if (collider.gameObject.CompareTag("Ground"))
+        {
             m_bIsGround = true;
         }
     }
 
-    void OnTriggerExit2D(Collider2D collider) {
+    void OnTriggerExit2D(Collider2D collider)
+    {
         //Debug.Log("Exit");
     }
 
     // Death
-    void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.CompareTag("NeedleTrap") && m_bIsDeath == false) {
-            deathParticle.Play();   
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("NeedleTrap") && m_bIsDeath == false)
+        {
+            deathParticle.Play();
             m_bIsDeath = true;
             rig.constraints = RigidbodyConstraints2D.FreezeAll;
             sprite.color = new Color(1, 0, 0, 0);
@@ -158,7 +196,8 @@ public class Player : MonoBehaviour
     }
 
     #region local methods
-    public void SetHigherJump(bool isHigher) {
+    public void SetHigherJump(bool isHigher)
+    {
         m_bIsJumpHigher = isHigher;
     }
 

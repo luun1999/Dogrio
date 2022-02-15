@@ -26,17 +26,17 @@ public class RiddleDoor : MonoBehaviour
         bool bingoRiddle = true;
         foreach (var light in lights)
         {
-            if (light.GetComponent<Light>().isActive == false)
+            if (light.GetComponent<Light_>().isActive == false)
             {
                 bingoRiddle = false;
                 break;
             }
         }
- 
+
         if (bingoRiddle)
         {
             amin.SetBool("isClose", false);
-        } 
+        }
         else
         {
             amin.SetBool("isClose", true);
