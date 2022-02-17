@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public void LoadLevels() {
-        SceneManager.LoadScene("Level01");
+    public void LoadLevel(int level)
+    {
+        SceneManager.LoadScene("Level" + level);
+    }
+
+    public void LoadLevelScene()
+    {
+        SceneManager.LoadScene("ChooseLevel");
     }
 }
