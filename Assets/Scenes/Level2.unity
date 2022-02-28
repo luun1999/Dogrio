@@ -6416,6 +6416,70 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7103177000604954944, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 122747575}
+    - target: {fileID: 7103177000604954944, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 122747575}
+    - target: {fileID: 7103177000604954944, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetHigherJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103177000604954944, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetHigherJump
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103177000741805271, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1286338258}
+    - target: {fileID: 7103177000741805271, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1286338258}
+    - target: {fileID: 7103177000741805271, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1286338258}
+    - target: {fileID: 7103177000741805271, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LeftButtonDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103177000741805271, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LeftButtonUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103177000741805271, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LeftButtonUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103177001314789561, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1286338258}
+    - target: {fileID: 7103177001314789561, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1286338258}
+    - target: {fileID: 7103177001314789561, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1286338258}
+    - target: {fileID: 7103177001314789561, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RightButtonDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103177001314789561, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RightButtonUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103177001314789561, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RightButtonUp
+      objectReference: {fileID: 0}
     - target: {fileID: 7103177001999240459, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6636,7 +6700,7 @@ SpriteRenderer:
   m_Size: {x: 60, y: 11.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1228561193
@@ -7154,7 +7218,7 @@ SpriteRenderer:
   m_Size: {x: 60, y: 11.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1758891621
@@ -7297,7 +7361,7 @@ SpriteRenderer:
   m_Size: {x: 60, y: 11.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1888634528

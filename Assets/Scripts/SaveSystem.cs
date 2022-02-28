@@ -2,6 +2,7 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public static class SaveSystem
 {
@@ -40,6 +41,5 @@ public static class SaveSystem
     public static void DeletePlayerData()
     {
         File.Delete(Application.persistentDataPath + "/player" + SceneManager.GetActiveScene().name + ".fun");
-        UnityEditor.AssetDatabase.Refresh();
     }
 }

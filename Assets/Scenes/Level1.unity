@@ -321,7 +321,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!156049354 &161057744
 Grid:
@@ -651,6 +651,10 @@ PrefabInstance:
     - target: {fileID: 3981432542271344740, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
       propertyPath: m_Name
       value: Hidro (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981432542271344740, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
@@ -988,6 +992,10 @@ PrefabInstance:
     - target: {fileID: 3981432542271344740, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
       propertyPath: m_Name
       value: Hidro (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981432542271344740, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
@@ -1760,6 +1768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hidro (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3981432542271344740, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
 --- !u!1 &1188685737
@@ -1970,7 +1982,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1214856602
 Transform:
@@ -10531,7 +10543,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1264595467
 Transform:
@@ -11752,6 +11764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hidro
       objectReference: {fileID: 0}
+    - target: {fileID: 3981432542271344740, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
 --- !u!1 &1575946077
@@ -12160,6 +12176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hidro (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3981432542271344740, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
 --- !u!1 &1856278922
@@ -12313,7 +12333,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1951360831
 Transform:
@@ -21784,6 +21804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hidro (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3981432542271344740, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
 --- !u!1 &2061643056
@@ -21805,7 +21829,7 @@ GameObject:
   m_TagString: NeedleTrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2061643057
 Transform:

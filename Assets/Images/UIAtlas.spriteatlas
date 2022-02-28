@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 0
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 4
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 8
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: a92aaf51b756a8d43bc99a9c685bcf2b, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: f310ef424533c0e40b06567871e270f6, type: 3}
+  - {fileID: 21300000, guid: 0a42e493e9ffef34e91a0356df10e7bf, type: 3}
+  - {fileID: 8467241744927558709, guid: ae890dc57643f854d9c1d8131e0c362f, type: 3}
+  - {fileID: 1566552715412073297, guid: ae890dc57643f854d9c1d8131e0c362f, type: 3}
+  - {fileID: 649223268058989734, guid: ae890dc57643f854d9c1d8131e0c362f, type: 3}
+  - {fileID: -9000188618666376746, guid: ae890dc57643f854d9c1d8131e0c362f, type: 3}
+  - {fileID: -1257769187640015746, guid: ae890dc57643f854d9c1d8131e0c362f, type: 3}
+  - {fileID: -2574449355943416012, guid: ae890dc57643f854d9c1d8131e0c362f, type: 3}
+  - {fileID: -8644432326289134394, guid: e7d1f8f5fc16eb14a8f7cdeff41e0a63, type: 3}
+  - {fileID: 8428746408565367059, guid: e7d1f8f5fc16eb14a8f7cdeff41e0a63, type: 3}
+  - {fileID: 4964493305774440561, guid: e7d1f8f5fc16eb14a8f7cdeff41e0a63, type: 3}
+  - {fileID: -3213709148768795328, guid: e7d1f8f5fc16eb14a8f7cdeff41e0a63, type: 3}
+  - {fileID: 3363039724144485508, guid: e7d1f8f5fc16eb14a8f7cdeff41e0a63, type: 3}
+  - {fileID: -1952156098685547002, guid: e7d1f8f5fc16eb14a8f7cdeff41e0a63, type: 3}
+  - {fileID: 193977138940669424, guid: e7d1f8f5fc16eb14a8f7cdeff41e0a63, type: 3}
+  - {fileID: 21300000, guid: f6c672c9ba762d84981327f96053310e, type: 3}
+  - {fileID: -241500957432320091, guid: 8b35377c27c3c434ca39031a967b4a93, type: 3}
+  - {fileID: 2208951494130483778, guid: 8b35377c27c3c434ca39031a967b4a93, type: 3}
+  - {fileID: -5957100371820182482, guid: 8b35377c27c3c434ca39031a967b4a93, type: 3}
+  - {fileID: -84229485986424039, guid: 8b35377c27c3c434ca39031a967b4a93, type: 3}
+  - {fileID: 1642073304241945628, guid: 8b35377c27c3c434ca39031a967b4a93, type: 3}
+  - {fileID: 8890812194036036647, guid: 8b35377c27c3c434ca39031a967b4a93, type: 3}
+  - {fileID: -7821636728023020437, guid: 8b35377c27c3c434ca39031a967b4a93, type: 3}
+  - {fileID: 21300000, guid: 3afa258eaf47dbe4a94c5b001e86e9f4, type: 3}
+  - {fileID: 21300000, guid: 18de763fdd2ff7f45b8d853abe8e9388, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - BtnMenuDown
+  - BtnMenuUp
+  - Button_2
+  - Button_3
+  - Button_0
+  - Button_1
+  - Button_4
+  - Button_5
+  - UILEVEL1_3
+  - UILEVEL1_2
+  - UILEVEL1_1
+  - UILEVEL1_0
+  - UILEVEL1_7
+  - UILEVEL1_6
+  - UILEVEL1_5
+  - star
+  - UILEVEL2_5
+  - UILEVEL2_6
+  - UILEVEL2_7
+  - UILEVEL2_0
+  - UILEVEL2_1
+  - UILEVEL2_2
+  - UILEVEL2_3
+  - woodenBoard
+  - MenuUI
+  m_RenderDataMap: {}
+  m_Tag: UIAtlas
+  m_IsVariant: 0
