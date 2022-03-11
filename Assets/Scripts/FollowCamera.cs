@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    public Transform player;
-    public int offset = 2;
-    // Start is called before the first frame update
-    void Start()
+    public Transform follow;
+    public Vector3 offset;
+    public float smooth;
+    public float rangeWidth;
+    public float rangeHeight;
+
+    private Vector3 startPos;
+
+    private void Start()
     {
-        
+        startPos = transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        float spaceX = player.position.x - transform.position.x;
-        float spaceY = player.position.y - transform.position.y;
-        transform.Translate(new Vector2(spaceX + offset, spaceY + offset));
+        Vector3 target = new Vector3(follow.transform.position.x, follow.transform.position.y, transform.position.z);
+        target = target + offset;
+
+        Vector3 smoothTransform = Vector3.Lerp(transform.position, target, smooth * Time.fixedDeltaTime);
+        transform.position = smoothTransform;
     }
 }

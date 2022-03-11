@@ -79,10 +79,6 @@ public class Player : MonoBehaviour
             SaveSystem.DeletePlayerData();
         }
 
-        anim.SetFloat("velocityY", rig.velocity.y);
-        anim.SetBool("isJumpHigher", m_bIsJumpHigher);
-        anim.SetBool("isGround", m_bIsGround);
-
         if (m_PlayerController.GetHorizontalInput() < 0)
         {
             sprite.flipX = true;
@@ -100,6 +96,10 @@ public class Player : MonoBehaviour
         {
             return;
         }
+
+        anim.SetFloat("velocityY", rig.velocity.y);
+        anim.SetBool("isJumpHigher", m_bIsJumpHigher);
+        anim.SetBool("isGround", m_bIsGround);
 
         if (!completeLevelUI.activeSelf)
         {
@@ -136,6 +136,11 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            m_bIsGround = true;
+        }
+
         if (other.gameObject.CompareTag("End Point"))
         {
             completeLevelUI.SetActive(true);
@@ -158,24 +163,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D collider)
-    {
-        //Debug.Log("Stay");
-
-        if (collider.gameObject.CompareTag("Ground"))
-        {
-            m_bIsGround = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collider)
-    {
-        //Debug.Log("Exit");
-    }
-
     // Death
     void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject.CompareTag("LightButton"))
+        {
+            m_bIsGround = true;
+        }
+
         if (other.gameObject.CompareTag("NeedleTrap") && m_bIsDeath == false)
         {
             deathParticle.Play();
@@ -187,11 +182,6 @@ public class Player : MonoBehaviour
             //logic when game over
             gameOverUI.SetActive(true);
 
-        }
-
-        if (other.gameObject.CompareTag("LightButton"))
-        {
-            m_bIsGround = true;
         }
     }
 
