@@ -7258,6 +7258,10 @@ PrefabInstance:
       propertyPath: follow
       value: 
       objectReference: {fileID: 122747576}
+    - target: {fileID: 4331363247771618658, guid: a8a02595ee13701498642a1cf15bc22f, type: 3}
+      propertyPath: smooth
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4331363247771618661, guid: a8a02595ee13701498642a1cf15bc22f, type: 3}
       propertyPath: m_Name
       value: Main Camera
