@@ -27,6 +27,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        // Test game at 30 fps
+        // Application.targetFrameRate = 30;
+
         rig = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -46,6 +49,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
+        anim.SetFloat("velocityY", rig.velocity.y);
+        anim.SetBool("isJumpHigher", m_bIsJumpHigher);
+        anim.SetBool("isGround", m_bIsGround);
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -97,10 +103,6 @@ public class Player : MonoBehaviour
             return;
         }
 
-        anim.SetFloat("velocityY", rig.velocity.y);
-        anim.SetBool("isJumpHigher", m_bIsJumpHigher);
-        anim.SetBool("isGround", m_bIsGround);
-
         if (!completeLevelUI.activeSelf)
         {
             //rig.constraints = RigidbodyConstraints2D.FreezePositionX;
@@ -130,15 +132,24 @@ public class Player : MonoBehaviour
             {
                 rig.AddForce(transform.up * m_nJumpSpeed, ForceMode2D.Force);
             }
-            m_bIsGround = false;
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Trigger");
         if (other.gameObject.CompareTag("Ground"))
         {
             m_bIsGround = true;
+            anim.SetBool("isGround", true); // fuck Unity
+            if (m_bIsJumpHigher)
+            {
+                anim.Play("jump");
+            }
+            else
+            {
+                anim.Play("idleJump");
+            }
         }
 
         if (other.gameObject.CompareTag("End Point"))
@@ -160,6 +171,14 @@ public class Player : MonoBehaviour
                 PlayerScore += scoreObject.getScore();
                 scoreObject.OnPlayerEnter();
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            m_bIsGround = false;
         }
     }
 
