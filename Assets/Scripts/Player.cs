@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Trigger");
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("LightButton"))
         {
             m_bIsGround = true;
             anim.SetBool("isGround", true); // fuck Unity
@@ -176,7 +176,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("LightButton"))
         {
             m_bIsGround = false;
         }
@@ -185,11 +185,6 @@ public class Player : MonoBehaviour
     // Death
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("LightButton"))
-        {
-            m_bIsGround = true;
-        }
-
         if (other.gameObject.CompareTag("NeedleTrap") && m_bIsDeath == false)
         {
             deathParticle.Play();

@@ -11210,6 +11210,102 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2056000460, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: m_Name
+      value: HidroParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000461, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000461, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: ShapeModule.angle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: LightsModule.color
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: LightsModule.range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: NoiseModule.quality
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: ShapeModule.arc.value
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: LightsModule.intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: LightsModule.maxLights
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: ColorBySpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: LightsModule.randomDistribution
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.5803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.972549
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056000463, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.9843137
+      objectReference: {fileID: 0}
     - target: {fileID: 3981432542271344736, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -11257,10 +11353,6 @@ PrefabInstance:
     - target: {fileID: 3981432542271344740, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
       propertyPath: m_Name
       value: Hidro
-      objectReference: {fileID: 0}
-    - target: {fileID: 3981432542271344740, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acf33bc2391e94943a02405bf44d6021, type: 3}
