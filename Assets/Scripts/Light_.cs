@@ -6,7 +6,7 @@ public class Light_ : MonoBehaviour
 {
     [SerializeField] private Sprite lightOn;
     [SerializeField] private Sprite lightOff;
-    [SerializeField] private SpriteRenderer renderer;
+    [SerializeField] private SpriteRenderer sprite;
 
     public bool isActive = false;
     // Start is called before the first frame update
@@ -20,11 +20,11 @@ public class Light_ : MonoBehaviour
     {
         if (isActive == false)
         {
-            renderer.sprite = lightOff;
+            sprite.sprite = lightOff;
         }
         else
         {
-            renderer.sprite = lightOn;
+            sprite.sprite = lightOn;
         }
     }
 }

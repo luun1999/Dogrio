@@ -27,6 +27,9 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        // Test game at 30 fps
+        // Application.targetFrameRate = 30;
+
         rig = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
@@ -46,6 +49,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
+        anim.SetFloat("velocityY", rig.velocity.y);
+        anim.SetBool("isJumpHigher", m_bIsJumpHigher);
+        anim.SetBool("isGround", m_bIsGround);
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -78,10 +84,6 @@ public class Player : MonoBehaviour
         {
             SaveSystem.DeletePlayerData();
         }
-
-        anim.SetFloat("velocityY", rig.velocity.y);
-        anim.SetBool("isJumpHigher", m_bIsJumpHigher);
-        anim.SetBool("isGround", m_bIsGround);
 
         if (m_PlayerController.GetHorizontalInput() < 0)
         {
@@ -130,12 +132,26 @@ public class Player : MonoBehaviour
             {
                 rig.AddForce(transform.up * m_nJumpSpeed, ForceMode2D.Force);
             }
-            m_bIsGround = false;
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Trigger");
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("LightButton"))
+        {
+            m_bIsGround = true;
+            anim.SetBool("isGround", true); // fuck Unity
+            if (m_bIsJumpHigher)
+            {
+                anim.Play("jump");
+            }
+            else
+            {
+                anim.Play("idleJump");
+            }
+        }
+
         if (other.gameObject.CompareTag("End Point"))
         {
             completeLevelUI.SetActive(true);
@@ -158,19 +174,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnTriggerStay2D(Collider2D collider)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        //Debug.Log("Stay");
-
-        if (collider.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("LightButton"))
         {
-            m_bIsGround = true;
+            m_bIsGround = false;
         }
-    }
-
-    void OnTriggerExit2D(Collider2D collider)
-    {
-        //Debug.Log("Exit");
     }
 
     // Death
@@ -187,11 +196,6 @@ public class Player : MonoBehaviour
             //logic when game over
             gameOverUI.SetActive(true);
 
-        }
-
-        if (other.gameObject.CompareTag("LightButton"))
-        {
-            m_bIsGround = true;
         }
     }
 

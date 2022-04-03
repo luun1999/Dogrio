@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hidro : Score
 {
+    [SerializeField] private ParticleSystem deathParticle;
     private Animator animator;
     private Rigidbody2D rig;
     private Collider2D col;
@@ -26,5 +27,7 @@ public class Hidro : Score
         col.isTrigger = false;
         rig.gravityScale = 1;
         IsDestroying = true;
+
+        deathParticle.Play();
     }
 }
