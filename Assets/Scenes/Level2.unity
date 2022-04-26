@@ -5796,11 +5796,11 @@ PrefabInstance:
     - target: {fileID: 7103177000604954944, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2142495517}
     - target: {fileID: 7103177000604954944, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2142495517}
     - target: {fileID: 7103177000604954944, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetHigherJump
@@ -5812,15 +5812,15 @@ PrefabInstance:
     - target: {fileID: 7103177000741805271, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2142495518}
     - target: {fileID: 7103177000741805271, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2142495518}
     - target: {fileID: 7103177000741805271, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2142495518}
     - target: {fileID: 7103177000741805271, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LeftButtonDown
@@ -5836,15 +5836,15 @@ PrefabInstance:
     - target: {fileID: 7103177001314789561, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2142495518}
     - target: {fileID: 7103177001314789561, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2142495518}
     - target: {fileID: 7103177001314789561, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2142495518}
     - target: {fileID: 7103177001314789561, guid: cb2133320d2a45a469ecd1952172d2d3, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RightButtonDown
@@ -6967,3 +6967,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 869c28f4fb2c5cc4d9ab5f17954bc0b9, type: 3}
+--- !u!114 &2142495517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6234642657223559370, guid: 869c28f4fb2c5cc4d9ab5f17954bc0b9, type: 3}
+  m_PrefabInstance: {fileID: 2142495516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9dba0b879637104789b4866c409fdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2142495518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6234642656387094669, guid: 869c28f4fb2c5cc4d9ab5f17954bc0b9, type: 3}
+  m_PrefabInstance: {fileID: 2142495516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab52e89b7c13f04b9dc7115d07dd619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
