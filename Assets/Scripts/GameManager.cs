@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         //display loading screen
         loadingScreen.SetActive(true);
         //loading level in backgrounds
-        AsyncOperation loadingLevel = SceneManager.LoadSceneAsync("Level" + level);
+        AsyncOperation loadingLevel = SceneManager.LoadSceneAsync("Forest" + level);
 
         //get progress data and undisplay loading screen when progress is finished
         StartCoroutine(GetSceneLoadingProgress(loadingLevel));
