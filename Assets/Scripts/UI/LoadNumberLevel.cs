@@ -27,18 +27,20 @@ public class LoadNumberLevel : MonoBehaviour
         }
         for (int i = 0; i < arrayName.Count; i++) {
             int l_keyForest = ForestKey.Length;
+            string level = arrayName[i].Substring(l_keyForest, 1);
+
             var sceneBoard = Instantiate(sceneElement, transform.position, Quaternion.identity);
             sceneBoard.transform.SetParent(this.transform);
 
             int copyIndex = i;
             sceneBoard.GetComponent<Button>().onClick.AddListener(() => {
-                // How to use Gamemanager ?
-                SceneManager.LoadScene(arrayName[copyIndex]);
+                GameManager.instance.LoadLevel(int.Parse(level));
+
+                // SceneManager.LoadScene(arrayName[copyIndex]);
             });
 
             GameObject levelTextElement = sceneBoard.transform.GetChild(levelTextIndex).gameObject;
             var elementText = levelTextElement.GetComponent<TextMeshProUGUI>();
-            string level = arrayName[i].Substring(l_keyForest, 1);
 
             elementText.SetText(ForestKey + " " + level);
         }
