@@ -6,12 +6,24 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Slider loadingSlider;
-    public static GameManager instance;
     [SerializeField] private GameObject loadingScreen;
+
+    //Singleton pattern
+    private static GameManager instance;
+    public static GameManager Instance { get => instance; set => instance = value; }
 
     private void Awake()
     {
-        instance = this;
+        var gameManager = GameObject.FindObjectOfType<GameManager>();
+        if (!gameManager)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Instance = gameManager;
+            Debug.Log("set instance for game manager");
+        }
     }
 
     public void LoadChoosingLevel()
@@ -19,6 +31,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("ChooseLevel");
     }
 
+
+    //todo : Move to SceneManager
     public void LoadLevel(int level)
     {
         //display loading screen
