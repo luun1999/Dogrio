@@ -142,3 +142,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2341830602939cc449ef735764be27a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lights: []
+  identifyInto: {fileID: 0}

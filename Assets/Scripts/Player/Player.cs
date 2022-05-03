@@ -160,7 +160,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("SavePoint"))
         {
             Debug.Log("Hey hey save here!");
-            SavePlayer();
+            SavePlayer(other.gameObject);
         }
 
         if (other.gameObject.CompareTag("Score"))
@@ -205,9 +205,9 @@ public class Player : MonoBehaviour
         m_bIsJumpHigher = isHigher;
     }
 
-    public void SavePlayer()
+    public void SavePlayer(GameObject gameobject_position)
     {
-        SaveSystem.SavePlayer(this);
+        SaveSystem.SavePlayer(gameobject_position);
     }
 
     public void LoadPlayer()
