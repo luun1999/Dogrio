@@ -34,7 +34,7 @@ public class LoadNumberLevel : MonoBehaviour
 
             int copyIndex = i;
             sceneBoard.GetComponent<Button>().onClick.AddListener(() => {
-                GameManager.instance.LoadLevel(int.Parse(level));
+                GameManager.Instance.LoadLevel(int.Parse(level));
 
                 // SceneManager.LoadScene(arrayName[copyIndex]);
             });

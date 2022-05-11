@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 24673459}
-  - component: {fileID: 24673460}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -162,18 +161,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 348, y: 214}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &24673460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24673458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63c236436c05b834faba85fad116e7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &41090497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1013,17 +1000,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2962541492214039684, guid: 7212e9c51d744684aa0d3ca78e07b8d1, type: 3}
   m_PrefabInstance: {fileID: 1403734629}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1425635227 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 782908492234801, guid: 1a9dabad1c0c3214ba05a83bfb2f33ad, type: 3}
-  m_PrefabInstance: {fileID: 782909227874218}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f464dc5a839f945bec75e2f522eb2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1466458026 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8392034460797521790, guid: 308a2574dd99de04aa875a8ff2d68253, type: 3}
@@ -1931,7 +1907,7 @@ PrefabInstance:
     - target: {fileID: 2962541492214039687, guid: 7212e9c51d744684aa0d3ca78e07b8d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1425635227}
+      objectReference: {fileID: 4108484954485013938, guid: 00acd2827982dd245b3139e1ae7b3c6e, type: 3}
     - target: {fileID: 2962541492214039687, guid: 7212e9c51d744684aa0d3ca78e07b8d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
