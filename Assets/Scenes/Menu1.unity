@@ -923,7 +923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2962541492214039686, guid: 7212e9c51d744684aa0d3ca78e07b8d1, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2962541492214039687, guid: 7212e9c51d744684aa0d3ca78e07b8d1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

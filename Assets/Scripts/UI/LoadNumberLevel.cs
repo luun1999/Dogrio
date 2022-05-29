@@ -31,6 +31,7 @@ public class LoadNumberLevel : MonoBehaviour
 
             var sceneBoard = Instantiate(sceneElement, transform.position, Quaternion.identity);
             sceneBoard.transform.SetParent(this.transform);
+            sceneBoard.transform.localScale = new Vector3(1, 1, 1);
 
             int copyIndex = i;
             sceneBoard.GetComponent<Button>().onClick.AddListener(() => {
